@@ -1,0 +1,30 @@
+@startuml ディレクトリの依存関係
+
+package "src" {
+    package "domain" {
+        folder "models" as Models
+        folder "value_objects" as ValueObjects
+    }
+
+    package "application" {
+        folder "usecases" as UseCases
+    }
+
+    package "infrastructure" {
+        folder "repository" as Repository
+        folder "api" as API
+    }
+
+    package "presentation" {
+        folder "graphql" as GraphQL
+    }
+}
+
+' 依存関係
+UseCases ..> Models : uses
+UseCases ..> ValueObjects : uses
+Repository ..> Models : uses
+GraphQL ..> UseCases : uses
+API ..> UseCases : uses
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml WifiAggregation
+
+entity "WifiSpot" as WifiSpot {
+    + id: int
+    + name: string
+    + location: string
+    + availability: boolean
+    + description: string
+    + distanceToStation: double
+}
+
+entity "Admin" as Admin {
+    + id: int
+    + name: string
+    + email: string
+}
+
+entity "User" as User {
+    + id: int
+    + name: string
+    + email: string
+}
+
+User --> WifiSpot : searches >
+Admin --> WifiSpot : registers >
+@enduml
